@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: ./services/api-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - user-service
+      - order-service
+      - delivery-service
+      - notification-service
+
+  user-service:
+    build: ./services/user-service
+    ports:
+      - "3001:3001"
+
+  order-service:
+    build: ./services/order-service
+    ports:
+      - "3002:3002"
+
+  delivery-service:
+    build: ./services/delivery-service
+    ports:
+      - "3003:3003"
+
+  notification-service:
+    build: ./services/notification-service
+    ports:
+      - "3004:3004"
